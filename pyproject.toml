@@ -1,0 +1,15 @@
+[project]
+name = "learn-git-pytest"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pytest>=9.0.2",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "ruff>=0.15.5",
+]
