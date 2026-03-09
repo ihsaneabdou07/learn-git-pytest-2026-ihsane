@@ -1,93 +1,369 @@
-# Git, Testing, and CI Learning Repository
+# Git, Testing, and Continuous Integration Lab
 
-This repository is designed for first-year engineering students to learn essential software engineering practices: Git version control, automated testing with pytest, and Continuous Integration (CI) using GitHub Actions. The Python exercises serve as a vehicle for practicing these concepts.
+This repository is used in the **Collaborative Programming lab** to introduce several important software engineering practices used in real-world development:
+
+* **Git** for version control
+* **GitHub** for collaboration
+* **pytest** for automated testing
+* **GitHub Actions** for Continuous Integration (CI)
+
+You will complete several Python exercises and submit your work using a **Pull Request workflow**.
+
+---
 
 ## Repository Structure
 
-- `exercise1/`: Basic calculator functions
-- `exercise2/`: String manipulation utilities
-- `exercise3/`: Temperature conversion functions
-- `tests/`: Test files for all exercises
+```
+learn-git-pytest
+│
+├── exercise1/
+│   └── calculator.py
+│
+├── exercise2/
+│   └── strings.py
+│
+├── exercise3/
+│   └── temperature.py
+│
+├── tests/
+│   ├── test_exercise1.py
+│   ├── test_exercise2.py
+│   └── test_exercise3.py
+│
+└── requirements.txt
+```
+
+Each exercise contains incomplete Python functions that you must implement.
+
+The `tests/` folder contains automated tests that verify your solutions.
+
+---
 
 ## Learning Objectives
 
-1. **Git Version Control**: Learn forking, branching, committing changes, and creating pull requests
-2. **Test-Driven Development**: Understand how to write and run tests with pytest
-3. **Continuous Integration**: Experience how GitHub Actions can automate your testing workflow
+By completing this lab you will learn:
 
-## Getting Started
+#### Version Control (Git)
 
-1. **Fork this repository**:
-   - Click the "Fork" button at the top right of this repository page
-   - This creates a copy of the repository under your GitHub account
+* Forking a repository
+* Cloning a repository
+* Creating branches
+* Committing changes
+* Pushing code to GitHub
 
-2. **Clone your forked repository**:
-   ```bash
-   git clone https://github.com/your-username/learn-git-pytest.git
-   cd learn-git-pytest
-   ```
+#### Automated Testing
 
-3. **Create a branch with your name**:
-   ```bash
-   git checkout -b firstname-lastname
-   ```
+* Running tests with **pytest**
+* Understanding test failures
+* Fixing code until tests pass
 
-4. **Install the required dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+#### Continuous Integration
 
-5. **Implement the required functions**:
-   - Complete the functions in each `.py` file
-   - Run the tests locally to check your implementation:
-     ```bash
-     pytest tests/
-     ```
+* Running automated checks using **GitHub Actions**
+* Understanding CI pipelines
+* Verifying code quality automatically
 
-6. **Commit your changes**:
-   ```bash
-   git add .
-   git commit -m "Implement solutions for exercises"
-   ```
+---
+You can write the section like this so it stays **simple and consistent** for students.
 
-7. **Push your branch to your fork**:
-   ```bash
-   git push -u origin firstname-lastname
-   ```
+---
 
-## GitHub Actions CI Pipeline
+## Required Software
 
-This repository uses GitHub Actions to automatically run tests whenever you push changes to your branch. The workflow:
+You must install the following tools.
 
-1. Checks out your code
-2. Sets up Python
+---
+
+### Install Using `winget` (recommended for Windows)
+
+If you are using **Windows**, you can install some tools directly from the terminal.
+
+Open **PowerShell** and run:
+
+#### Install Git (If not already installed)
+
+```powershell
+winget install Git.Git
+```
+
+Verify installation:
+
+```bash
+git --version
+```
+
+---
+
+#### Install Python (If not already installed)
+
+```powershell
+winget search Python.Python.3.11
+```
+
+Verify installation:
+
+```bash
+python --version
+```
+
+---
+
+#### Install VS Code (recommended)
+
+```powershell
+winget install Microsoft.VisualStudioCode
+```
+
+After installation, open VS Code and install the **Python extension**.
+
+---
+
+### Install GitHub Desktop
+
+Download and install from the official website:
+
+[https://github.com/apps/desktop](https://github.com/apps/desktop)
+
+After installing, log in with your **GitHub account**.
+
+GitHub Desktop provides a **graphical interface for Git**, which makes it easier to manage repositories, commits, and branches.
+
+---
+
+
+## Step 1 — Fork the Repository
+
+Go to the course repository on GitHub.
+
+Click the **Fork** button in the top-right corner.
+
+This creates your **own copy of the repository** under your GitHub account.
+
+---
+
+## Step 2 — Clone Your Fork
+
+Clone your fork to your computer.
+
+#### Using GitHub Desktop
+
+1. Open GitHub Desktop
+2. Click **File → Clone repository**
+3. Select your fork
+4. Choose a location on your computer
+
+---
+
+## Step 3 — Open the Project
+
+Open the project folder using **VS Code**.
+
+---
+
+## Step 4 — Create a Python Virtual Environment
+
+In the project folder, open a terminal and run:
+
+```bash
+python -m venv .venv
+```
+
+This creates an isolated Python environment.
+
+---
+
+### Activate the Environment
+
+#### Windows (PowerShell)
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+#### Windows (Command Prompt)
+
+```cmd
+.venv\Scripts\activate
+```
+
+You should now see:
+
+```
+(.venv)
+```
+
+in your terminal prompt.
+
+---
+
+## Step 5 — Install Dependencies
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+This installs:
+
+* pytest
+* mypy
+* other required tools
+
+---
+
+## Step 6 — Run the Tests
+
+Run the test suite:
+
+```bash
+pytest tests/
+```
+
+You will notice that **some tests fail**.
+
+Your task is to **modify the code so that all tests pass**.
+
+---
+
+## Step 7 — Create Your Working Branch
+
+Before modifying the code, create a branch with your name.
+
+Example:
+
+```bash
+git checkout -b firstname-lastname
+```
+
+Replace `firstname-lastname` with your name.
+
+Example:
+
+```
+git checkout -b alice-smith
+```
+
+---
+
+## Step 8 — Implement the Functions
+
+Complete the missing functions in the exercise files.
+
+Example files:
+
+```
+exercise1/calculator.py
+exercise2/strings.py
+exercise3/temperature.py
+```
+
+Run tests frequently:
+
+```bash
+pytest tests/
+```
+
+When all tests pass, your implementation is correct.
+
+---
+
+## Step 9 — Commit Your Changes
+
+Save your progress using Git.
+
+```bash
+git add .
+git commit -m "Implement solutions for exercises"
+```
+
+A **commit** records a snapshot of your work.
+
+---
+
+## Step 10 — Push Your Branch
+
+Upload your branch to your GitHub fork:
+
+```bash
+git push -u origin firstname-lastname
+```
+
+---
+
+## Continuous Integration (GitHub Actions)
+
+This repository uses **GitHub Actions** to automatically verify your code.
+
+Each time you push code:
+
+1. GitHub downloads your repository
+2. Installs Python
 3. Installs dependencies
-4. Runs type checking with mypy
-5. Executes all tests with pytest
+4. Runs type checking with **mypy**
+5. Runs all tests using **pytest**
 
-Check the results in the "Actions" tab of your forked GitHub repository after pushing your changes. Fix any failing tests before submission.
+You can see the results in the **Actions** tab of your GitHub repository.
 
-## Submission Process
+If tests fail, you must fix your code and push again.
 
-When you've completed all exercises and all tests pass:
+---
 
-1. Make sure all your changes are committed and pushed to your branch
-2. Go to the **original** repository (not your fork)
-3. Click on "Pull Requests" and then "New Pull Request"
-4. Click on the link "compare across forks"
-5. Set the base repository to the original course repository and base branch to `main`
-6. Set the head repository to your fork and the compare branch to your `firstname-lastname` branch
-7. Add a title like "Exercise Solutions - Firstname Lastname"
-8. Click "Create Pull Request"
-9. Notify your instructor that you've submitted your pull request
+## Step 11 — Submit Your Work
 
-## What to Expect After Submission
+When all tests pass locally and in GitHub Actions:
+
+1. Go to the **original course repository**
+2. Click **Pull Requests**
+3. Click **New Pull Request**
+4. Click **compare across forks**
+
+Then configure:
+
+* **Base repository:** course repository
+* **Base branch:** `main`
+* **Head repository:** your fork
+* **Compare branch:** `firstname-lastname`
+
+---
+
+## Step 12 — Create the Pull Request
+
+Add a title such as:
+
+```
+Exercise Solutions - Firstname Lastname
+```
+
+Click **Create Pull Request**.
+
+---
+
+## What Happens Next
 
 Your instructor will:
-1. Review your code
-2. Verify that all tests pass in the CI pipeline
-3. Provide feedback through the pull request comments
-4. Either approve and merge your changes or request modifications
 
-Happy coding and testing!
+* Review your code
+* Verify that all tests pass
+* Provide feedback in the Pull Request
+* Approve or request changes
 
+---
+
+## Summary of the Workflow
+
+```
+Fork repository
+Clone repository
+Create branch
+Write code
+Run tests locally
+Commit changes
+Push branch
+Create Pull Request
+Check GitHub Actions
+```
+
+---
+
+Happy coding! 🚀
