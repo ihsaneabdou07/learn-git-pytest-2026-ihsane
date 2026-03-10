@@ -16,7 +16,7 @@ def add(a: Number, b: Number) -> Number:
     Returns:
         The sum of a and b
     """
-    return a+b+56
+    return a+b
 
 def subtract(a: Number, b: Number) -> Number:
     """
@@ -64,5 +64,6 @@ def divide(a: Number, b: Number) -> Number:
         return None
     else:
         return a/b
+
 
 
